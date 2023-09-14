@@ -1,0 +1,19 @@
+.dice-block {
+  height: 500px;
+  width: 500px;
+  border: 2px solid black;
+  
+  
+}
+.button{
+  height: 100px;
+  width: 100px;
+}
+.rolls-block {
+  height: 300px;
+  width: 200px;
+  border: 2px solid black;
+}
+.container{
+  display: flex;
+}
