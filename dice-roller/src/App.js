@@ -2,25 +2,32 @@ import React, {useState} from "react"
 import Dice from "./components/Dice"
 import Roller from "./components/Roller"
 import './App.css';
-
-
+import diceone from "./assets/diceone.png"
+import dicetwo from "./assets/dicetwo.png"
+import dicethree from "./assets/dicethree.png"
+import dicefour from "./assets/dicefour.png"
+import dicefive from "./assets/dicefive.png"
+import dicesix from "./assets/dicesix.png"
 
 const App = () => {
-  // const numbers = [1, 2, 3, 4, 5, 6]
-  const [currentNumber, setCurrentNumber] = useState()
-  
-  const triggerRandomNum = () => {
-    setCurrentNumber(Math.floor(Math.random()* 7))
-  } // we put set current number because we want it to change the current number to the random number that we just created with our randomizer 
+ 
+  const [currentDice, setCurrentDice] = useState("")
+  const [lastRoll, setLastRoll] = useState ([])
+  const diceNums = [diceone, dicetwo, dicethree, dicefour, dicefive, dicesix]
+  const rollThatDice = () => {
+    const randomRoll = Math.ceil(Math.random() * diceNums.length)
+    setCurrentDice(diceNums[randomRoll - 1])
+    setLastRoll([...lastRoll, randomRoll])
+  } 
 return (
   <>
-  <h1>Dice Roll Application</h1>
-  <div className="container">
+  <h1>Rolling Dice</h1>
   <Dice 
-  currentNumber={currentNumber} 
-  triggerRandomNum={triggerRandomNum}/> 
-  <Roller />
-  </div>
+  rollThatDice={rollThatDice} 
+  currentDice={currentDice}
+  />
+  <Roller 
+  lastRoll = {lastRoll} />
   </>
   
 )

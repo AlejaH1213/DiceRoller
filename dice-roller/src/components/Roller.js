@@ -2,7 +2,11 @@ import React from "react"
 
 const Roller = (props) => {
     return (
-<div className="rolls-block">Roller</div>
+<>
+<div className="roll-log">
+    {props.lastRoll}
+</div>
+</>
 
     )
 }
